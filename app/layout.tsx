@@ -30,8 +30,10 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <div className="container">
-              <AppHeader />
-              {children}
+              <div className="grid grid-rows-[auto,1fr,auto] h-screen">
+                <AppHeader />
+                <div>{children}</div>
+              </div>
             </div>
           </ThemeProvider>
         </Providers>
