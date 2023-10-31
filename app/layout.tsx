@@ -1,6 +1,6 @@
 import Appbar from "@/components/AppBar";
 import Providers from "@/components/Providers";
-import ModeToggler from "@/components/ui/ModeToggler";
+import AppHeader from "@/components/layout/AppHeader";
 
 import { ThemeProvider } from "@/components/theme-provider";
 
@@ -29,8 +29,10 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <ModeToggler />
-            {children}
+            <div className="container">
+              <AppHeader />
+              {children}
+            </div>
           </ThemeProvider>
         </Providers>
       </body>
