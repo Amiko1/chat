@@ -32,7 +32,7 @@ export default function RootLayout({
             <div className="container">
               <div className="grid grid-rows-[auto,1fr,auto] h-screen">
                 <AppHeader />
-                <div>{children}</div>
+                {children}
               </div>
             </div>
           </ThemeProvider>
