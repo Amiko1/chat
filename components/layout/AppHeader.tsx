@@ -1,4 +1,5 @@
 import React from "react";
+import SignOutButton from "@/components/ui/SignOutButton";
 import ModeToggler from "@/components/ui/ModeToggler";
 
 export default function AppHeader() {
@@ -7,7 +8,8 @@ export default function AppHeader() {
       <div>
         <p>LOGO</p>
       </div>
-      <div>
+      <div className="flex items-center gap-4">
+        <SignOutButton />
         <ModeToggler />
       </div>
     </header>
