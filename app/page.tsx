@@ -1,5 +1,5 @@
 import HomeAccordion from "@/components/home/HomeAccordion";
-import HomeSigninButton from "@/components/home/HomeSigninButton";
+import HomeSigninButtons from "@/components/home/HomeSigninButtons";
 export default function Home() {
   return (
     <main className="flex flex-col p-1 pb-10 pt-5 sm:flex-row  sm:items-center sm:gap-40 lg:gap-96">
@@ -8,7 +8,7 @@ export default function Home() {
         <p className="text-center mt-2 text-sm">
           Get New People and have a fun
         </p>
-        <HomeSigninButton className="w-full mt-20 sm:mt-10" />
+        <HomeSigninButtons className="w-full mt-20 sm:mt-10" />
       </div>
 
       <div className="mt-24 sm:mt-0 sm:basis-1/2 ">
