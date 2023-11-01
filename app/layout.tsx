@@ -1,4 +1,3 @@
-import Appbar from "@/components/AppBar";
 import Providers from "@/components/Providers";
 import AppHeader from "@/components/layout/AppHeader";
 
@@ -29,11 +28,9 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <div className="container">
-              <div className="grid grid-rows-[auto,1fr,auto] h-screen">
-                <AppHeader />
-                {children}
-              </div>
+            <div className="grid grid-rows-[auto,1fr,auto] h-screen">
+              <AppHeader />
+              {children}
             </div>
           </ThemeProvider>
         </Providers>

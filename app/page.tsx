@@ -10,7 +10,7 @@ export default async function Home() {
     redirect("chat");
   }
   return (
-    <main className="flex flex-col p-1 pb-10 pt-5 sm:flex-row  sm:items-center sm:gap-20 lg:gap-96">
+    <main className="flex flex-col p-1 pb-10 pt-5 sm:flex-row  sm:items-center sm:gap-20 lg:gap-96 container px-4">
       <div className="mt-10 sm:mt-0 sm:w-1/2 ">
         <h1 className="text-center text-2xl">Welcome To Chat app</h1>
         <p className="text-center mt-2 text-sm">
@@ -21,7 +21,6 @@ export default async function Home() {
 
       <div className="mt-24 sm:mt-0 sm:w-1/2 ">
         <HomeAccordion />
-        <Link href="chat">Click here to read more</Link>
       </div>
       <div className="hidden	 sm:block fixed w-1/2 h-screen top-0 left-0  bg-black dark:bg-white opacity-10 -z-10 "></div>
     </main>

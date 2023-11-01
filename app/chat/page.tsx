@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
+import ChatSidebar from "@/components/chat/chatSidebar";
 
 export default async function Page() {
   const session = await getServerSession();
@@ -11,9 +12,10 @@ export default async function Page() {
 
   return (
     <div>
-      This is a protected route.
-      <br />
-      You will only see this if you are authenticated.
+      <aside className="h-full">
+        <ChatSidebar />
+      </aside>
+      <main></main>
     </div>
   );
 }

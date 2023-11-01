@@ -1,6 +1,6 @@
 "use client";
 import { signOut, useSession } from "next-auth/react";
-import { Button } from "@/components/ui/button";
+import DarkButton from "@/components/ui/DarkButton";
 
 export default function SignOutButton() {
   const { data: session } = useSession();
@@ -8,8 +8,11 @@ export default function SignOutButton() {
     return;
   }
   return (
-    <Button onClick={() => signOut()} className="h-9">
+    <DarkButton
+      onClick={() => signOut()}
+      className="h-9 bg-slate-800 text-white"
+    >
       SignOut
-    </Button>
+    </DarkButton>
   );
 }
