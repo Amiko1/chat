@@ -3,14 +3,16 @@ import DarkButton from "../ui/DarkButton";
 import MessengerMessage from "@/components/chat/MessengerMessage";
 export default function ChatMessenger() {
   return (
-    <div className="w-full h-full relative px-4">
-      <section style={{ maxWidth: "75rem" }}>
+    <div className="w-full h-full px-4 flex flex-col justify-between gap-6 ">
+      <section className="overflow-y-auto   p-4 border-slate-800">
+        <MessengerMessage />
+        <MessengerMessage />
+        <MessengerMessage />
+        <MessengerMessage />
+        <MessengerMessage />
         <MessengerMessage />
       </section>
-      <section
-        className="absolute bottom-10 w-11/12 flex gap-2 "
-        style={{ maxWidth: "75rem" }}
-      >
+      <section className=" w-11/12 flex gap-2 mb-10">
         <MessengerForm />
         <DarkButton>SEND</DarkButton>
       </section>

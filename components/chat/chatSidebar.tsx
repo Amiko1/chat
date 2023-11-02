@@ -1,7 +1,6 @@
 import DarkButton from "@/components/ui/DarkButton";
 import ProfileButton from "@/components/chat/ProfileButton";
 import SocialLinks from "../ui/SocialLinks";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 export default function ChatSidebar() {
   return (
