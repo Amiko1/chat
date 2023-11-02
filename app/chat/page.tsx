@@ -11,11 +11,11 @@ export default async function Page() {
   }
 
   return (
-    <div>
-      <aside className="absolute top-0 z-10  h-full w-full pt-20  md:w-96">
+    <div className="overflow-hidden">
+      <aside className="absolute top-0 z-10  h-full w-full pt-24  md:w-96">
         <ChatSidebar />
       </aside>
-      <main className="md:pl-96 h-full">
+      <main className="md:pl-96 h-full mt-6">
         <ChatMessenger />
       </main>
     </div>
