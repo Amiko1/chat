@@ -1,5 +1,7 @@
 import DarkButton from "@/components/ui/DarkButton";
 import ProfileButton from "@/components/chat/ProfileButton";
+import SocialLinks from "../ui/SocialLinks";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 export default function ChatSidebar() {
   return (
@@ -12,8 +14,11 @@ export default function ChatSidebar() {
         <DarkButton className="w-full" disabled>
           VOICE CHAT COMMING SOOON
         </DarkButton>
-        <div className="absolute left-4 bottom-4">
+        <div className="fixed left-4 bottom-4">
           <ProfileButton />
+        </div>
+        <div className="mt-6">
+          <SocialLinks />
         </div>
       </div>
     </section>
