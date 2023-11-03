@@ -2,7 +2,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function MessengerMessage() {
   return (
-    <article>
+    <article className="mt-10">
       <div style={{ maxWidth: "24rem" }} className="flex gap-4 ">
         <Avatar>
           <AvatarImage src="https://github.com/shadcn.png" />
@@ -10,9 +10,7 @@ export default function MessengerMessage() {
         </Avatar>
         <div className="max-w-24">
           <div className="bg-yellow-300  px-2 py-2 rounded">
-            <p className="self-endtext-sm text-slate-800">
-              hi my nigga how are you ma man
-            </p>
+            <p className="self-endtext-sm text-slate-800">RAVA</p>
           </div>
           <div className="mt-2">
             <time className="text-sm">By Stranger - July 7</time>

@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 
-export default function DarkButton(props) {
+export default function DarkButton(props: any) {
   return (
     <Button
       disabled={props.disabled}
