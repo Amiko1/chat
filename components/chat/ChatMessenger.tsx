@@ -12,12 +12,17 @@ export default function ChatMessenger() {
 
   useEffect((): any => {
     // Listen for incoming messages
-    socket.on("chat message", (message) => {
-      console.log(message);
-      setMessages((prevMessages: any) => [...prevMessages, message]);
-    });
-    return () => socket.off("chat message");
+    socket.on("chat message", intialiseEvent);
+    return () => {
+      socket.off("chat message", intialiseEvent);
+      socket.disconnect();
+    };
   }, []);
+
+  const intialiseEvent = (message: string) => {
+    console.log(message);
+    setMessages((prevMessages: any) => [...prevMessages, message]);
+  };
 
   const sendMessage = () => {
     socket.emit("chat message", newMessage);
