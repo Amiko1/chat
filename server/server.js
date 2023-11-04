@@ -13,8 +13,7 @@ const io = new Server(server, {
     methods: ["GET", "POST"],
   },
 });
-console.log(uniqid());
-io.on("connection", (socket) => {
+io.once("connection", (socket) => {
   console.log("A user connected");
   socket.on("disconnect", () => {
     console.log("A user disconnected");
@@ -23,6 +22,8 @@ io.on("connection", (socket) => {
   socket.on("chat message", (message) => {
     io.emit("chat message", { message, id: uniqid(), socketId: socket.id }); // Broadcast the message to all connected clients
   });
+  const clientCount = io.engine.clientsCount;
+  console.log(`Current client count: ${clientCount}`);
 });
 
 server.listen(3001, () => {

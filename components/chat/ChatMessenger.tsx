@@ -1,26 +1,22 @@
 "use client";
 import MessengerForm from "@/components/chat/MessengerForm";
 import MessengerMessage from "@/components/chat/MessengerMessage";
-
+import { getSocket } from "@/lib/socket";
 import React, { useEffect, useState } from "react";
-import io from "socket.io-client";
-
-const socket = io("http://localhost:3001"); // Replace with your server URL
+const socket = getSocket();
 export default function ChatMessenger() {
   const [messages, setMessages] = useState<any>([]);
   const [newMessage, setNewMessage] = useState("");
 
   useEffect((): any => {
-    // Listen for incoming messages
     socket.on("chat message", intialiseEvent);
     return () => {
       socket.off("chat message", intialiseEvent);
-      socket.disconnect();
+      // socket.disconnect();
     };
   }, []);
 
   const intialiseEvent = (message: string) => {
-    console.log(message);
     setMessages((prevMessages: any) => [...prevMessages, message]);
   };
 
