@@ -4,7 +4,6 @@ import ChatSidebar from "@/components/chat/chatSidebar";
 import ChatMessenger from "@/components/chat/ChatMessenger";
 export default async function Page() {
   const session = await getServerSession();
-  console.log(session, "sesia");
 
   if (!session || !session.user) {
     redirect("/");

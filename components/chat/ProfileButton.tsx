@@ -5,7 +5,6 @@ import { useSession } from "next-auth/react";
 
 export default function ProfileButton() {
   const { data: session } = useSession();
-  console.log(session);
   return (
     <button>
       <span className="flex justify-center items-center gap-4">

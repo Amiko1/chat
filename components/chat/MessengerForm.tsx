@@ -10,18 +10,29 @@ type Props = {
 };
 
 export default function MessengerForm({ text, onClick, onChange }: Props) {
-  const handler = () => {
-    onChange(text);
+  const handler = (txt: any) => {
+    onChange(txt);
+  };
+
+  const keyHandler = (event: any) => {
+    if (event.key === "enter") {
+      onChange(event.target.value);
+    }
   };
   return (
     <>
       <Input
         className=""
         placeholder="Type your message here."
-        onChange={handler}
+        onChange={(e) => handler(e.target.value)}
         value={text}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            onClick(e);
+          }
+        }}
       />
-      ;<DarkButton onClick={onClick}>SEND</DarkButton>
+      <DarkButton onClick={onClick}>SEND</DarkButton>
     </>
   );
 }
