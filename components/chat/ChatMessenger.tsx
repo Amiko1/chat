@@ -1,5 +1,4 @@
 import MessengerForm from "@/components/chat/MessengerForm";
-import DarkButton from "../ui/DarkButton";
 import MessengerMessage from "@/components/chat/MessengerMessage";
 export default function ChatMessenger() {
   return (
@@ -14,7 +13,6 @@ export default function ChatMessenger() {
       </section>
       <section className=" w-11/12 flex gap-2 mb-10">
         <MessengerForm />
-        <DarkButton>SEND</DarkButton>
       </section>
     </div>
   );
