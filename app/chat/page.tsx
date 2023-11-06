@@ -18,6 +18,7 @@ export default function Page() {
   useEffect(() => {
     if (status === "connecting") {
       socket.connect();
+      socket.emit("joinRoom", { data: "emit" });
     }
   }, [status]);
   return (
