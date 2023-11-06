@@ -13,14 +13,14 @@ const io = new Server(server, {
     methods: ["GET", "POST"],
   },
 });
-io.once("connection", (socket) => {
+io.on("connection", (socket) => {
   console.log("A user connected");
   socket.on("disconnect", () => {
     console.log("A user disconnected");
   });
   // Handle chat messages
-  socket.on("chat message", (message) => {
-    io.emit("chat message", { message, id: uniqid(), socketId: socket.id }); // Broadcast the message to all connected clients
+  socket.on("chat-message", (message) => {
+    io.emit("chat-message", { message, id: uniqid(), socketId: socket.id }); // Broadcast the message to all connected clients
   });
   const clientCount = io.engine.clientsCount;
   console.log(`Current client count: ${clientCount}`);

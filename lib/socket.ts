@@ -3,12 +3,8 @@
 import io from "socket.io-client";
 import { SOCKET_URL } from "@/lib/config";
 
-let socket = null;
-console.log(socket, "suckit");
-export const getSocket = () => {
-  if (!socket) {
-    socket = io(SOCKET_URL);
-  }
-
-  return socket;
-};
+export const socket = io(SOCKET_URL, {
+  transports: ["websocket"],
+  upgrade: false,
+  autoConnect: false,
+});
