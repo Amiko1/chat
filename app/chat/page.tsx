@@ -27,7 +27,7 @@ export default function Page() {
         <ChatSidebar setStatus={setStatus} />
       </aside>
       <main className="md:pl-96 h-full mt-6 relative">
-        <ChatMessenger socket={socket} status={status} />
+        <ChatMessenger socket={socket} status={status} setStatus={setStatus} />
         {status === "notConnecting" && (
           <div className="md:pl-96 absolute left-0 top-0 bottom-0 right-0 flex justify-center items-center">
             <p className=" text-2xl">chose your chat type</p>

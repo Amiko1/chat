@@ -7,18 +7,19 @@ type Props = {
   text: string;
   onClick: Function;
   onChange: Function;
+  onNext: Function;
 };
 
-export default function MessengerForm({ text, onClick, onChange }: Props) {
+export default function MessengerForm({
+  text,
+  onClick,
+  onChange,
+  onNext,
+}: Props) {
   const handler = (txt: any) => {
     onChange(txt);
   };
 
-  const keyHandler = (event: any) => {
-    if (event.key === "enter") {
-      onChange(event.target.value);
-    }
-  };
   return (
     <>
       <Input
@@ -33,6 +34,7 @@ export default function MessengerForm({ text, onClick, onChange }: Props) {
         }}
       />
       <DarkButton onClick={onClick}>SEND</DarkButton>
+      <DarkButton onClick={onNext}>Next</DarkButton>
     </>
   );
 }
