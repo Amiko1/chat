@@ -24,13 +24,6 @@ const getRoom = (socketId) => {
   return room;
 };
 
-const joinedEmiter = (socket) => {
-  if (getRoom(socket.id)) {
-    const areUsersConnected = getRoom(socket.id).users.length > 1;
-    io.to(getRoom(socket.id).roomId).emit("joined", areUsersConnected);
-  }
-};
-
 const join = (socket) => {
   uniqueId = uniqid();
   socketRooms.push({
@@ -48,6 +41,7 @@ const randomJoin = (socket) => {
       flag = true;
       room.users.push(socket.id);
       socket.join(room.roomId);
+      io.to(getRoom(socket.id).roomId).emit("joined", true);
     }
   });
 
@@ -86,8 +80,6 @@ io.on("connection", (socket) => {
     socket.leaveAll();
 
     randomJoin(socket);
-
-    joinedEmiter(socket);
   });
 
   const clientCount = io.engine.clientsCount;
