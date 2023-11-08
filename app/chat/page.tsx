@@ -16,9 +16,16 @@ export default function Page() {
   }
 
   useEffect(() => {
-    if (status === "connecting") {
-      socket.connect();
-      socket.emit("joinRoom", { data: "emit" });
+    socket.connect();
+    return () => socket.emit("disconnected");
+  }, []);
+
+  useEffect(() => {
+    switch (status) {
+      case "connecting":
+        socket.emit("connecting", { data: "emit" });
+      default:
+        break;
     }
   }, [status]);
   return (

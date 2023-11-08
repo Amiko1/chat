@@ -44,8 +44,8 @@ export default function ChatMessenger({
   };
 
   const handleNext = () => {
-    socket.emit("disc");
-    socket.emit("joinRoom", { data: "emit" });
+    socket.disconnect();
+    socket.connect();
     setStatus("connecting");
   };
   return (
