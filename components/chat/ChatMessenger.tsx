@@ -6,7 +6,6 @@ import UserFounded from "@/components/chat/UserFounded";
 import UserDiscconected from "@/components/chat/UserDiscconected";
 import React, { useEffect, useState } from "react";
 import { Socket } from "socket.io-client";
-import { disconnect } from "process";
 
 export default function ChatMessenger({
   socket,
@@ -43,7 +42,6 @@ export default function ChatMessenger({
 
   const handleNext = () => {
     socket.disconnect();
-    socket.connect();
     setStatus("connecting");
   };
   return (

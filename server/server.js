@@ -69,7 +69,7 @@ io.on("connection", (socket) => {
 
   // Handle chat messages
   socket.on("chat-message", (message) => {
-    io.to(getRoom(socket.id).roomId).emit("chat-message", {
+    io.to(getRoom(socket.id)?.roomId).emit("chat-message", {
       message,
       id: uniqid(),
       socketId: socket.id,
