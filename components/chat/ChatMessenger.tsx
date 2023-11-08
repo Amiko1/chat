@@ -21,7 +21,7 @@ export default function ChatMessenger({
   const [newMessage, setNewMessage] = useState("");
   useEffect((): any => {
     socket.on("chat-message", intialiseEvent);
-    socket.on("connected", () => {
+    socket.on("joined", () => {
       setStatus("connected");
     });
     socket.on("disconnected", () => {
