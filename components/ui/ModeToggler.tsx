@@ -15,7 +15,7 @@ import {
 export default function ModeToggler() {
   const { setTheme } = useTheme();
   React.useEffect(() => {
-    setTheme("dark");
+    setTheme("dar");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (

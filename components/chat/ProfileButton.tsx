@@ -8,8 +8,8 @@ export default function ProfileButton() {
   return (
     <button>
       <span className="flex justify-center items-center gap-4">
-        <BsPersonCircle className="text-3xl "></BsPersonCircle>
-        <span>{session?.user?.name}</span>
+        <BsPersonCircle className="text-3xl text-white"></BsPersonCircle>
+        <span className="text-white">{session?.user?.name}</span>
       </span>
     </button>
   );

@@ -18,7 +18,6 @@ export default function ChatMessenger({
 }) {
   const [messages, setMessages] = useState<any>([]);
   const [newMessage, setNewMessage] = useState("");
-  const isMounted = useRef(false);
 
   useEffect((): any => {
     socket.on("chat-message", intialiseEvent);
@@ -44,12 +43,11 @@ export default function ChatMessenger({
   };
 
   const handleNext = () => {
-    socket.disconnect();
     setStatus("connecting");
   };
   return (
     <div
-      className={`w-full h-full px-4 flex flex-col justify-between gap-6  ${
+      className={`w-full h-full px-4 pt-10 flex flex-col justify-between gap-6  ${
         status === "notConnecting" ? "blur-sm" : ""
       }`}
     >

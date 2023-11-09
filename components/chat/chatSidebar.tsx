@@ -2,9 +2,20 @@ import DarkButton from "@/components/ui/DarkButton";
 import ProfileButton from "@/components/chat/ProfileButton";
 import SocialLinks from "../ui/SocialLinks";
 
-export default function ChatSidebar({ setStatus }: { setStatus: Function }) {
+export default function ChatSidebar({
+  setStatus,
+  setIsSideBarOpen,
+  status,
+}: {
+  setStatus: Function;
+  setIsSideBarOpen: Function;
+  status: string;
+}) {
   const handleIsConnnecting = () => {
-    setStatus("connecting");
+    if (status !== "connected" && status !== "connecting") {
+      setStatus("connecting");
+    }
+    setIsSideBarOpen((isSidebarOpen: boolean) => !isSidebarOpen);
   };
   return (
     <section className="px-3 relative h-full bg-slate-900">
