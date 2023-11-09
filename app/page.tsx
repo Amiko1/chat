@@ -22,7 +22,7 @@ export default async function Home() {
       <div className="mt-24 sm:mt-0 sm:w-1/2 ">
         <HomeAccordion />
       </div>
-      <div className="hidden	 sm:block fixed w-1/2 h-screen top-0 left-0  bg-black dark:bg-white opacity-10 -z-10 "></div>
+      <div className="hidden	 sm:block fixed w-1/2 h-screen top-0 left-0  bg-blue-500 dark:bg-white dark:opacity-10 opacity-70 -z-10 "></div>
     </main>
   );
 }
