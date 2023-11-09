@@ -25,6 +25,7 @@ export default function ChatMessenger({
       setStatus("connected");
     });
     socket.on("disconnected", () => {
+      socket.emit("chat-message", newMessage);
       setStatus("disconnected");
     });
     return () => {
