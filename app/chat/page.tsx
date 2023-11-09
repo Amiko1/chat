@@ -16,13 +16,9 @@ export default function Page() {
   }
 
   useEffect(() => {
-    socket.connect();
-    return () => socket.emit("disconnected");
-  }, []);
-
-  useEffect(() => {
     switch (status) {
       case "connecting":
+        socket.connect();
         socket.emit("connecting", { data: "emit" });
       default:
         break;
