@@ -14,7 +14,10 @@ import {
 
 export default function ModeToggler() {
   const { setTheme } = useTheme();
-
+  React.useEffect(() => {
+    setTheme("dark");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
