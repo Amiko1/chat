@@ -43,6 +43,7 @@ export default function ChatMessenger({
   };
 
   const handleNext = () => {
+    socket.emit("chat-message", []);
     setStatus("connecting");
   };
   return (
