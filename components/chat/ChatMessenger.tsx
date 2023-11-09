@@ -18,7 +18,7 @@ export default function ChatMessenger({
 }) {
   const [messages, setMessages] = useState<any>([]);
   const [newMessage, setNewMessage] = useState("");
-
+  const messageSection = useRef<HTMLDivElement>(null);
   useEffect((): any => {
     socket.on("chat-message", intialiseEvent);
     socket.on("joined", () => {
@@ -28,11 +28,18 @@ export default function ChatMessenger({
       setStatus("disconnected");
       setMessages([]);
     });
+
     return () => {
       socket.removeAllListeners();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (messageSection.current) {
+      messageSection.current.scrollTop = messageSection.current.scrollHeight;
+    }
+  }, [messages]);
 
   const intialiseEvent = (message: string) => {
     setMessages((prevMessages: any) => [...prevMessages, message]);
@@ -53,7 +60,10 @@ export default function ChatMessenger({
         status === "notConnecting" ? "blur-sm" : ""
       }`}
     >
-      <section className="overflow-y-auto   p-4 border-slate-800">
+      <section
+        className="overflow-y-auto   p-4 border-slate-800"
+        ref={messageSection}
+      >
         {status === "connecting" && <UserFinding />}
         {status === "connected" && <UserFounded />}
         {status === "disconnected" && <UserDiscconected onNext={handleNext} />}
