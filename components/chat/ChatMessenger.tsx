@@ -25,8 +25,8 @@ export default function ChatMessenger({
       setStatus("connected");
     });
     socket.on("disconnected", () => {
-      socket.emit("chat-message", newMessage);
       setStatus("disconnected");
+      setMessages([]);
     });
     return () => {
       socket.removeAllListeners();
@@ -44,7 +44,7 @@ export default function ChatMessenger({
   };
 
   const handleNext = () => {
-    socket.emit("chat-message", []);
+    setMessages([]);
     setStatus("connecting");
   };
   return (
