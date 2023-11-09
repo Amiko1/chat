@@ -23,10 +23,10 @@ export default function ChatMessenger({
     socket.on("chat-message", intialiseEvent);
     socket.on("joined", () => {
       setStatus("connected");
+      setMessages([]);
     });
     socket.on("disconnected", () => {
       setStatus("disconnected");
-      setMessages([]);
     });
 
     return () => {
@@ -51,7 +51,6 @@ export default function ChatMessenger({
   };
 
   const handleNext = () => {
-    setMessages([]);
     setStatus("connecting");
   };
   return (
