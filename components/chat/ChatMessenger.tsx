@@ -4,7 +4,7 @@ import MessengerMessage from "@/components/chat/MessengerMessage";
 import UserFinding from "@/components/chat/UserFinding";
 import UserFounded from "@/components/chat/UserFounded";
 import UserDiscconected from "@/components/chat/UserDiscconected";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Socket } from "socket.io-client";
 
 export default function ChatMessenger({
@@ -18,6 +18,8 @@ export default function ChatMessenger({
 }) {
   const [messages, setMessages] = useState<any>([]);
   const [newMessage, setNewMessage] = useState("");
+  const isMounted = useRef(false);
+
   useEffect((): any => {
     socket.on("chat-message", intialiseEvent);
     socket.on("joined", () => {
@@ -29,6 +31,7 @@ export default function ChatMessenger({
     return () => {
       socket.removeAllListeners();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const intialiseEvent = (message: string) => {

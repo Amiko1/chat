@@ -2,7 +2,7 @@ import DarkButton from "@/components/ui/DarkButton";
 import ProfileButton from "@/components/chat/ProfileButton";
 import SocialLinks from "../ui/SocialLinks";
 
-export default function ChatSidebar({ setStatus }) {
+export default function ChatSidebar({ setStatus }: { setStatus: Function }) {
   const handleIsConnnecting = () => {
     setStatus("connecting");
   };
