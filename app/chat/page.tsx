@@ -12,8 +12,8 @@ export default function Page() {
   const [status, setStatus] = useState("notConnecting");
   const [isSideBarOpen, setIsSideBarOpen] = useState(true);
   const session = useSession();
-
-  if (!session || !session) {
+  console.log(session.data);
+  if (!session.data) {
     redirect("/");
   }
 
