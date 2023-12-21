@@ -11,12 +11,11 @@ import { useEffect, useState } from "react";
 export default function Page() {
   const [status, setStatus] = useState("notConnecting");
   const [isSideBarOpen, setIsSideBarOpen] = useState(true);
-  const session = useSession();
-  console.log(session.data);
-  if (!session.data) {
+  const { data: session, status: authStatus } = useSession();
+
+  if (authStatus === "unauthenticated") {
     redirect("/");
   }
-
   useEffect(() => {
     switch (status) {
       case "connecting":

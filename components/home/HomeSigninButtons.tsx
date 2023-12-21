@@ -13,9 +13,9 @@ const SigninButton = ({ className }: { className: string }) => {
         <Button className={`${className} bg-yellow-500`} onClick={handleClick}>
           google signin
         </Button>
-        <Button className={`${className} bg-blue-500`} onClick={handleClick}>
+        {/* <Button className={`${className} bg-blue-500`} onClick={handleClick}>
           faceboo signin
-        </Button>
+        </Button> */}
       </div>
     </>
   );
