@@ -21,9 +21,8 @@ export default function MessengerForm({
   };
 
   return (
-    <>
+    <div className="w-11/12 flex gap-2 mb-10">
       <Input
-        className=""
         placeholder="Type your message here."
         onChange={(e) => handler(e.target.value)}
         value={text}
@@ -34,7 +33,9 @@ export default function MessengerForm({
         }}
       />
       <DarkButton onClick={onClick}>SEND</DarkButton>
-      <DarkButton onClick={onNext}>Next</DarkButton>
-    </>
+      <DarkButton className="bg-red-700" onClick={onNext}>
+        Next
+      </DarkButton>
+    </div>
   );
 }

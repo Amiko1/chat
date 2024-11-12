@@ -83,7 +83,7 @@ export default function ChatMessenger({
             );
           })}
       </section>
-      <section className=" w-11/12 flex gap-2 mb-10">
+      <section>
         <MessengerForm
           text={newMessage}
           onClick={sendMessage}
