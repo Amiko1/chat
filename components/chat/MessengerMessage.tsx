@@ -29,7 +29,7 @@ export default function MessengerMessage({
       ) : (
         <div
           style={{ maxWidth: "24rem" }}
-          className="flex gap-4 mt-10 ml-auto  ml-auto justify-end"
+          className="flex gap-4 mt-10  ml-auto justify-end"
         >
           <div className="max-w-24">
             <div className="bg-blue-300  px-2 py-2 rounded">

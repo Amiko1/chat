@@ -32,8 +32,8 @@ export default function RootLayout({
           >
             <div className="grid grid-rows-[auto,1fr,auto] h-screen">
               <AppHeader />
-              <ToastContainer />
               {children}
+              <ToastContainer />
             </div>
           </ThemeProvider>
         </Providers>
