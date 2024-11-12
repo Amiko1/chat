@@ -6,6 +6,7 @@ import UserFounded from "@/components/chat/UserFounded";
 import UserDiscconected from "@/components/chat/UserDiscconected";
 import React, { useEffect, useState, useRef } from "react";
 import { Socket } from "socket.io-client";
+import { toast } from "react-toastify";
 
 export default function ChatMessenger({
   socket,
@@ -48,6 +49,13 @@ export default function ChatMessenger({
   };
 
   const sendMessage = () => {
+    if (!newMessage.length) {
+      toast.error("Message should not be empty", {
+        theme: "dark",
+        icon: false,
+      });
+      return;
+    }
     socket.emit("sendMessage", newMessage, (error: string) => {
       console.log(error);
     });
