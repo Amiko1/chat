@@ -21,7 +21,11 @@ export default function Page() {
       case "connecting":
         socket.disconnect();
         socket.connect();
-        socket.emit("connecting", { data: "emit" });
+        socket.emit(
+          "join",
+          { username: session?.user?.name || "STRANGER" },
+          (error: string) => console.log(error)
+        );
       default:
         break;
     }

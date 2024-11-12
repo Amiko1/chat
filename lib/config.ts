@@ -1,1 +1,1 @@
-export const SOCKET_URL = "https://strangerge-a57efd145aab.herokuapp.com";
+export const SOCKET_URL = "http://localhost:5000";

@@ -20,8 +20,9 @@ export default function ChatMessenger({
   const [newMessage, setNewMessage] = useState("");
   const messageSection = useRef<HTMLDivElement>(null);
   useEffect((): any => {
-    socket.on("chat-message", intialiseEvent);
+    socket.on("message", intialiseEvent);
     socket.on("joined", () => {
+      console.log("JOINED");
       setStatus("connected");
       setMessages([]);
     });
@@ -41,12 +42,15 @@ export default function ChatMessenger({
     }
   }, [messages]);
 
-  const intialiseEvent = (message: string) => {
-    setMessages((prevMessages: any) => [...prevMessages, message]);
+  const intialiseEvent = (state: any) => {
+    console.log("MESSAGEe", state);
+    setMessages((prevMessages: any) => [...prevMessages, state]);
   };
 
   const sendMessage = () => {
-    socket.emit("chat-message", newMessage);
+    socket.emit("sendMessage", newMessage, (error: string) => {
+      console.log(error);
+    });
     setNewMessage("");
   };
 
@@ -72,7 +76,7 @@ export default function ChatMessenger({
             return (
               <MessengerMessage
                 key={messages.id}
-                message={messages.message}
+                message={messages.text}
                 authorId={messages.socketId}
                 userId={socket.id}
               />
